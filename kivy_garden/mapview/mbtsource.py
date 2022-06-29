@@ -43,6 +43,7 @@ class MBTilesMapSource(MapSource):
         if "center" in metadata:
             cx, cy, cz = tuple(map(float, metadata["center"].split(",")))
         elif self.bounds:
+            self.bounds = bounds = list(bounds)                      #ADDED
             cx = (bounds[2] + bounds[0]) / 2.0
             cy = (bounds[3] + bounds[1]) / 2.0
             cz = self.min_zoom
